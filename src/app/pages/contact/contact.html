@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5><i class="fa-solid fa-circle-user"></i> Contact Me!</h5>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+                        <div class="form-group p-2">
+                            <label class="small fw-bold">Name</label>
+                        <p-inputgroup>
+                            <p-inputgroup-addon>
+                                <i class="fa-regular fa-user"></i>
+                            </p-inputgroup-addon>
+                            <input name="name" [(ngModel)]="formData.name" [ngModelOptions]="{standalone: true}" pInputText placeholder="Yourname..." />
+                        </p-inputgroup>
+                        <label class="small fw-bold">Email</label>
+                        <p-inputgroup>
+                            <p-inputgroup-addon>
+                                <i class="fa-solid fa-at"></i>
+                            </p-inputgroup-addon>
+                            <input name="email" [(ngModel)]="formData.email" [ngModelOptions]="{standalone: true}" pInputText placeholder="Email..." />
+                        </p-inputgroup>
+                        <label class="small fw-bold">Message</label>
+                        <p-inputgroup>
+                            <p-inputgroup-addon>
+                                <i class="fa-solid fa-envelope"></i>
+                            </p-inputgroup-addon>
+                            <input name="message" [(ngModel)]="formData.message" [ngModelOptions]="{standalone: true}" pInputText placeholder="Message..." />
+                        </p-inputgroup>
+                        </div>
+                        <div class="form-group text-center mt-3">
+                            <button class="btn btn-md btn-info w-100">Send <i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script> document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if (name && email && message) {
+        alert(`Thank you, ${name}! Your message has been sent.`);
+        document.getElementById("contact-form").reset();
+    } else {
+        alert("Please fill out all fields.");
+    }
+});
+</script>
